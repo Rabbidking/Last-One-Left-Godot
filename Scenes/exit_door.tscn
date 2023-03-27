@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdsu7el4ykke"]
+
+[ext_resource type="Texture2D" uid="uid://3om608tcsxtx" path="res://Assets/Environment/ElevatorOpen.png" id="2_1cioi"]
+[ext_resource type="Texture2D" uid="uid://cj3jtwfjhufqt" path="res://Assets/Environment/ElevatorClosed.png" id="3_cmo5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1317"]
+size = Vector2(243.333, 366.667)
+
+[node name="ExitDoor" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+
+[node name="doorOpen" type="Sprite2D" parent="."]
+texture = ExtResource("2_1cioi")
+
+[node name="doorClosed" type="Sprite2D" parent="."]
+texture = ExtResource("3_cmo5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.66667, 66.6667)
+shape = SubResource("RectangleShape2D_w1317")
