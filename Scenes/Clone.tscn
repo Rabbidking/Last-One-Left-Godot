@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddkhe1rj8xwtv"]
+[gd_scene load_steps=7 format=3 uid="uid://ddkhe1rj8xwtv"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tu0i6"]
-[ext_resource type="Texture2D" uid="uid://ii742y82b3rk" path="res://icon.svg" id="2_6fu1a"]
+[ext_resource type="Script" path="res://Scripts/Clone.gd" id="1_rnrld"]
+[ext_resource type="Texture2D" uid="uid://bl3mxg444kucx" path="res://Assets/Robot/Bot Roll 1.png" id="2_3i5ck"]
+[ext_resource type="Texture2D" uid="uid://b683fim0fp14i" path="res://Assets/Robot/Bot Roll 2.png" id="3_jqawt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q76g5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3i5ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jqawt")
+}],
+"loop": true,
+"name": &"clone_move",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hk0n"]
 size = Vector2(121, 122)
@@ -9,13 +24,15 @@ size = Vector2(121, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6af0i"]
 
 [node name="Clone" type="CharacterBody2D"]
-modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_tu0i6")
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_rnrld")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6fu1a")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q76g5")
+animation = &"clone_move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1)
@@ -25,3 +42,12 @@ shape = SubResource("RectangleShape2D_2hk0n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="clone_container"]
 shape = SubResource("RectangleShape2D_6af0i")
+
+[node name="Area2D_clone" type="Area2D" parent="."]
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_clone"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_2hk0n")
+
+[connection signal="area_entered" from="Area2D_clone" to="." method="_on_area_2d_clone_area_entered"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bew00tutpua6"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_1msro"]
+[ext_resource type="Texture2D" uid="uid://b6johp0tilygw" path="res://Assets/Background/BGWindow1.PNG" id="2_hgvmv"]
+[ext_resource type="PackedScene" uid="uid://b2qq2k0e836wr" path="res://Scenes/Spikes.tscn" id="2_j3mi3"]
+[ext_resource type="PackedScene" uid="uid://bdsu7el4ykke" path="res://Scenes/exit_door.tscn" id="3_77piu"]
+[ext_resource type="PackedScene" uid="uid://c4vm4ol1vlxcb" path="res://Scenes/Player.tscn" id="4_g4xy5"]
+[ext_resource type="PackedScene" uid="uid://bj82mkuc2ycnt" path="res://Scenes/fall_zone.tscn" id="6_rl86h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gayh"]
+size = Vector2(1146, 16)
+
+[node name="Node2D" type="Node2D" groups=["Level_1_Group"]]
+script = ExtResource("1_1msro")
+num_clones = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 261)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_hgvmv")
+
+[node name="ExitDoor" parent="." instance=ExtResource("3_77piu")]
+position = Vector2(1075, 553)
+
+[node name="Spikes" parent="." instance=ExtResource("2_j3mi3")]
+position = Vector2(574, 629)
+
+[node name="Player" parent="." instance=ExtResource("4_g4xy5")]
+position = Vector2(942, 596)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 608)
+collision_layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_top = 24.0
+offset_right = 1147.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(573, 32)
+shape = SubResource("RectangleShape2D_8gayh")
+
+[node name="fall_zone" parent="." instance=ExtResource("6_rl86h")]
+
+[connection signal="decrease_living" from="Player" to="." method="_on_player_decrease_living"]

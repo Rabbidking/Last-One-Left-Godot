@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mas6vgwi346v"]
+
+[ext_resource type="Texture2D" uid="uid://bkm88fwfk5msm" path="res://Assets/Background/BGWindow2.PNG" id="1_w7vf7"]
+[ext_resource type="PackedScene" uid="uid://bj82mkuc2ycnt" path="res://Scenes/fall_zone.tscn" id="2_tvt34"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="BgWindow2" type="Sprite2D" parent="."]
+position = Vector2(580, 272)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_w7vf7")
+
+[node name="fall_zone" parent="." instance=ExtResource("2_tvt34")]

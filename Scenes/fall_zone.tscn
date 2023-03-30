@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj82mkuc2ycnt"]
+
+[ext_resource type="Script" path="res://Scenes/fall_zone.gd" id="1_aarhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4qm0"]
+size = Vector2(2060, 82)
+
+[node name="fall_zone" type="Area2D"]
+position = Vector2(6, 679)
+collision_layer = 16
+collision_mask = 9
+script = ExtResource("1_aarhi")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(572, 31)
+shape = SubResource("RectangleShape2D_l4qm0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

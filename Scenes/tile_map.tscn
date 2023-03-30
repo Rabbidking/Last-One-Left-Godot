@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://duk6eryaa51yc"]
+
+[ext_resource type="Texture2D" uid="uid://dmnx3buw7h5e4" path="res://Assets/tilemap.png" id="1_gcau7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkkih"]
+texture = ExtResource("1_gcau7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+8:0/0 = 0
+8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_rgdeg"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 2
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Ground 0"
+terrain_set_0/terrain_0/color = Color(0.772549, 0.780392, 0.796078, 1)
+sources/12 = SubResource("TileSetAtlasSource_wkkih")
+tile_proxies/coords_level = [[1, Vector2i(0, 0)], [12, Vector2i(0, 0)], [2, Vector2i(0, 0)], [12, Vector2i(1, 0)], [3, Vector2i(0, 0)], [12, Vector2i(2, 0)], [4, Vector2i(0, 0)], [12, Vector2i(3, 0)], [5, Vector2i(0, 0)], [12, Vector2i(4, 0)], [6, Vector2i(0, 0)], [12, Vector2i(5, 0)], [8, Vector2i(0, 0)], [12, Vector2i(6, 0)], [9, Vector2i(0, 0)], [12, Vector2i(7, 0)], [11, Vector2i(0, 0)], [12, Vector2i(8, 0)]]
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_rgdeg")
+format = 2
